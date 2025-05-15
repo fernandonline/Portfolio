@@ -1,0 +1,92 @@
+@inject ThemeService ThemeService
+
+@code {
+    private string currentTheme = "dark";
+
+    private async Task ToggleTheme()
+    {
+        currentTheme = currentTheme == "dark" ? "light" : "dark";
+        await ThemeService.SetTheme(currentTheme);
+    }
+}
+
+<header>
+
+    <div class="topo">
+
+        <div class="topo-item">
+            <HomeSvg />
+            <span>inicio</span>
+        </div>
+
+        <div class="topo-item">
+            <ProjectsSvg />
+            <span>projetos</span>
+        </div>
+
+        <div class="topo-item">
+            <Email/>
+            <span>contato</span>
+        </div>
+
+        <div class="topo-item" @onclick="ToggleTheme">
+                @if (currentTheme == "dark")
+                {
+                    <MoonSvg />
+                }
+                else
+                {
+                    <SunSvg />
+                }
+
+                <span>tema</span>
+        </div>
+
+    </div>
+        
+</header>
+
+<style>
+    :root {
+        --top-bottom: 20px;
+    }
+
+    header {
+        width: 100%;
+        position: absolute;
+        bottom: var(--top-bottom);
+		display: flex;
+        flex-direction: column;
+		align-items: center;
+    }
+
+    .topo {
+        background-color: #000;
+        color: #FFF;
+        width: 80%;
+        border-radius: 1rem;
+		padding: .5rem;
+        display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+
+    }
+
+	.topo-item {
+        width: 30px;
+		display: flex;
+		flex-direction: column;
+        align-items: center;
+		cursor: pointer;
+		user-select: none;
+    }
+
+    @@media (min-width: 654px) {
+        header {
+			top: var(--top-bottom);
+        }
+
+
+    }
+</style>
