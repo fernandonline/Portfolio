@@ -11,6 +11,7 @@ body {
     height: 100svh;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: var(--bg-primary);
+    overflow: hidden;
 }
 
 #app {

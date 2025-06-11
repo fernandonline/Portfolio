@@ -1,8 +1,23 @@
 @inherits LayoutComponentBase
-@using Portfolio.Components.Header
+@using Portfolio.Components
 
 <Header/>
 
-<main>
-    @Body
-</main>
+<div class="layout-container">
+    <main class="main">
+        @Body
+    </main>
+</div>
+
+<style>
+    .layout-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .main {
+        flex: 1;
+        overflow-y: auto;
+    }
+</style>

@@ -14,15 +14,15 @@
 
     <div class="topo">
 
-        <div class="topo-item">
+        <NavLink href="/" class="topo-item">
             <HomeSvg />
             <span>inicio</span>
-        </div>
+        </NavLink>
 
-        <div class="topo-item">
+        <NavLink href="/projetos" class="topo-item">
             <ProjectsSvg />
             <span>projetos</span>
-        </div>
+        </NavLink>
 
         <div class="topo-item">
             <Email/>
@@ -46,6 +46,15 @@
         
 </header>
 
+@if (currentTheme == "dark")
+{
+    <style>
+        .topo {
+            border: 1px solid white;
+        }
+    </style>
+}
+
 <style>
     :root {
         --top-bottom: 20px;
@@ -53,40 +62,41 @@
 
     header {
         width: 100%;
-        position: absolute;
+        position: fixed;
+        z-index: 1;
         bottom: var(--top-bottom);
-		display: flex;
+        display: flex;
         flex-direction: column;
-		align-items: center;
+        align-items: center;
+        max-height: 3.5rem;
     }
 
     .topo {
         background-color: #000;
-        color: #FFF;
         width: 80%;
+        height: 3.5rem;
         border-radius: 1rem;
-		padding: .5rem;
+        padding: 2rem;
         display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-around;
-
-    }
-
-	.topo-item {
-        width: 30px;
-		display: flex;
-		flex-direction: column;
+        flex-direction: row;
         align-items: center;
-		cursor: pointer;
-		user-select: none;
+        justify-content: space-around;
     }
 
+    .topo-item {
+        width: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        color: #FFF;
+        text-decoration: none;
+    }
+
+    /* Quando a tela for larga (desktop), o header vai pro topo */
     @@media (min-width: 654px) {
         header {
-			top: var(--top-bottom);
+            top: var(--top-bottom);
         }
-
-
     }
 </style>

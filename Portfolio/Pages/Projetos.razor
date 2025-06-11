@@ -1,0 +1,70 @@
+@page "/projetos"
+@inject HttpClient Http
+
+<PageTitle>Projetos</PageTitle>
+<section class="main-proj">
+    @if (forecasts == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        @foreach (var forecast in forecasts)
+        {
+            <div class="card">
+                <img class="card-img" src="https://via.placeholder.com/286x180" alt="project image"/>
+                <div class="card-body">
+                    <h5 class="card-title">@forecast.Date.ToShortDateString()</h5>
+                    <span class="card-text">@forecast.Summary</span>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Temp. (C): @forecast.TemperatureC</li>
+                    <li class="list-group-item">Temp. (F): @forecast.TemperatureF</li>
+                </ul>
+
+                <div class="card-body">
+                    <a href="#" class="card-link">Detalhes</a>
+                    <a href="#" class="card-link">Outra ação</a>
+                </div>
+            </div>
+        }
+    }
+</section>
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
+
+
+<style>
+   .main-proj {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+   }
+
+   .card {
+        width: 100%;
+        max-width: 20rem;
+        margin: 0 auto 1rem auto;
+   }
+</style>
