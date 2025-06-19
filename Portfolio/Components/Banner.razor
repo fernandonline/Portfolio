@@ -1,7 +1,9 @@
-
 <section class="banner">
-    <TextAnimation Phrases="@Frases"/>
-        @code {
+
+    <div class="banner-text">
+        <TextAnimation Phrases="@Frases"/>
+        @code
+        {
             List<string[]> Frases = new()
             {
                 new[] { "luiz", "fernando", "portfólio" },
@@ -12,10 +14,35 @@
             };
         }
 
-    <div class="banner-dynamic">
-        <span>TESTE teste</span>
-
+        <button class="banner-text_btn">Teste</button>
     </div>
+
+    <div class="banner-glass">
+        <BannerCarousel Items="@BannerItems"/>
+    </div>
+
+    @code
+    {
+        List<BannerCarousel.CarouselItem> BannerItems = new()
+        {
+            new() {
+                ImageUrl   = "Assets/fernando-banner-4.3.jpg",
+                Description= "Nova atualização disponível!",
+                LinkUrl    = "/projetos",
+                LinkText   = "Saiba mais"
+            },
+            new() {
+                ImageUrl    = "Assets/fernando-banner-4.3.jpg",
+                Description = "Veja os melhores projetos.",
+            },
+            new() {
+              
+                Description = "Assets/fernando-banner-4.3",
+                LinkUrl     = "/contato",
+                LinkText    = "Fale conosco"
+            }
+        };
+    }
 
 </section>
 
@@ -24,19 +51,44 @@
         color: var(--text-color);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-
-        border: 2px solid white;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
     }
 
-    .banner-dynamic {
-        
+    .banner-text {
+        width: 100%;
+        font-size: 2.5rem;
+    }
+
+    .banner-text_btn {
+        margin-top: 20px;
+    }
+
+    .banner-glass {
+        width: 100%;
+        height: 100%;
+        border-radius: 36px;
+        padding: 1.5rem;
+        background: rgba(60, 60, 70, 0.2);
+        backdrop-filter: blur(12px) saturate(120%);
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     @@media (min-width: 738px) {
         .banner {
             flex-direction: row;
-            height: 50vh;
+            gap: 0;
+        }
+
+        .banner-text {
+            width: 40%;
+            font-size: 4rem;
+        }
+
+        .banner-glass {
+            width: 40%;
+            padding: 2rem;
         }
     }
 </style>

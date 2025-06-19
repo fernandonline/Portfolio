@@ -2,6 +2,7 @@
 @inject IJSRuntime JS
 
 @code {
+
     [Parameter]
     public List<string[]> Phrases { get; set; } = new();
 
@@ -28,7 +29,8 @@
     {
         currentIndex = (currentIndex + 1) % Phrases.Count;
         CurrentPhrase = Phrases[currentIndex];
-        useAltAnimation = !useAltAnimation; // alterna para forçar reinício da animação
+
+        useAltAnimation = !useAltAnimation;
         InvokeAsync(StateHasChanged);
     }
 
@@ -59,9 +61,7 @@
         display: flex;
         flex-direction: column;
         align-items: start;
-        font-family: 'Quicksand', sans-serif;
         font-weight: 600;
-        font-size: 3rem;
     }
 
     .lineA, .lineB {
@@ -80,21 +80,16 @@
     }
 
     @@keyframes slideInA {
-        to
-
-    {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     @@keyframes slideInB {
-        to
-
-    {
-        opacity: 1;
-        transform: translateY(0);
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-
-    }</style>
+</style>

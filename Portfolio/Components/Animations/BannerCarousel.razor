@@ -1,0 +1,127 @@
+@code {
+    [Parameter]
+    public List<CarouselItem> Items { get; set; } = new();
+
+    [Parameter]
+    public int DelaySeconds { get; set; } = 5;
+
+    private int currentIndex = 0;
+    private System.Timers.Timer? timer;
+
+    protected override void OnInitialized()
+    {
+        if (Items.Count > 1)
+        {
+            timer = new(DelaySeconds * 1000);
+            timer.Elapsed += (s, e) =>
+            {
+                currentIndex = (currentIndex + 1) % Items.Count;
+                InvokeAsync(StateHasChanged);
+            };
+            timer.Start();
+        }
+    }
+
+    public void Dispose()
+    {
+        timer?.Stop();
+        timer?.Dispose();
+    }
+
+    public class CarouselItem
+    {
+        public string ImageUrl { get; set; } = "";
+        public string Description { get; set; } = "";
+        public string? LinkUrl { get; set; }
+        public string? LinkText { get; set; }
+    }
+}
+
+<div class="carousel-wrapper">
+    <div class="carousel-inner" style="transform:translateX(-@($"{currentIndex * 100}%"))">
+        @foreach (var item in Items)
+        {
+            <div class="carousel-slide">
+                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                {
+                    <img src="@item.ImageUrl" alt="slide image" class="carousel-background" />
+                }
+
+                <div class="carousel-overlay">
+                    <p>@item.Description</p>
+
+                    @if (!string.IsNullOrEmpty(item.LinkUrl) && !string.IsNullOrEmpty(item.LinkText))
+                    {
+                        <a class="carousel-btn" href="@item.LinkUrl">@item.LinkText</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.6s ease-in-out;
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel-slide {
+        position: relative;
+        min-width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .carousel-background {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .carousel-overlay {
+        position: absolute;
+        inset: 0;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        color: white;
+        background: none;
+        z-index: 2;
+    }
+
+        .carousel-overlay p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+    .carousel-btn {
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(255,255,255,0.2);
+        border-radius: 0.5rem;
+        color: white;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+        .carousel-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+</style>
