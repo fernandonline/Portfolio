@@ -1,0 +1,100 @@
+@using System.Timers
+@inject IJSRuntime JS
+
+@code {
+    [Parameter]
+    public List<string[]> Phrases { get; set; } = new();
+
+    [Parameter]
+    public int DelaySeconds { get; set; } = 3;
+
+    private int currentIndex = 0;
+    private string[]? CurrentPhrase;
+    private Timer? phraseTimer;
+    private bool useAltAnimation = false;
+
+    protected override void OnInitialized()
+    {
+        if (Phrases.Any())
+        {
+            CurrentPhrase = Phrases[currentIndex];
+            phraseTimer = new Timer(DelaySeconds * 1000);
+            phraseTimer.Elapsed += OnPhraseChange;
+            phraseTimer.Start();
+        }
+    }
+
+    private void OnPhraseChange(object? sender, ElapsedEventArgs e)
+    {
+        currentIndex = (currentIndex + 1) % Phrases.Count;
+        CurrentPhrase = Phrases[currentIndex];
+        useAltAnimation = !useAltAnimation; // alterna para forçar reinício da animação
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        phraseTimer?.Stop();
+        phraseTimer?.Dispose();
+    }
+}
+
+<div class="animated-text">
+    @if (CurrentPhrase is not null)
+    {
+        @for (int i = 0; i < CurrentPhrase.Length; i++)
+        {
+            var className = useAltAnimation ? "lineA" : "lineB";
+            var delay = (i * 0.3).ToString("0.0", System.Globalization.CultureInfo.InvariantCulture);
+            <span class="@className" style="animation-delay:@($"{delay}s")">
+                @CurrentPhrase[i]
+            </span>
+        }
+    }
+</div>
+
+
+<style>
+    .animated-text {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 600;
+        font-size: 3rem;
+    }
+
+    .lineA, .lineB {
+        opacity: 0;
+        transform: translateY(-15px);
+        animation-duration: 0.6s;
+        animation-fill-mode: forwards;
+    }
+
+    .lineA {
+        animation-name: slideInA;
+    }
+
+    .lineB {
+        animation-name: slideInB;
+    }
+
+    @@keyframes slideInA {
+        to
+
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes slideInB {
+        to
+
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }</style>

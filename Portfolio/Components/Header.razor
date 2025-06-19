@@ -1,5 +1,4 @@
 <header>
-    <div class="topo">
 
         <NavLink href="/" class="topo-item">
             <HomeSvg />
@@ -16,41 +15,24 @@
             <span>contato</span>
         </div>
 
-    </div>
 </header>
 
 <style>
-    :root {
-        --top-bottom: 20px;
-    }
-
     header {
         width: 100%;
+        height: 4rem;
         position: fixed;
-        z-index: 1;
-        bottom: var(--top-bottom);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-height: 3.5rem;
-    }
-
-    .topo {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px) saturate(160%);
-        -webkit-backdrop-filter: blur(10px) saturate(160%);
-        width: 80%;
-        height: 3.5rem;
-        border-radius: 1rem;
-        padding: 2rem;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
+        background-color: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(10px) saturate(70%);
+        -webkit-backdrop-filter: blur(10px) saturate(160%);
     }
 
     .topo-item {
-        width: 25px;
+        width: 22px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -59,10 +41,9 @@
         text-decoration: none;
     }
 
-    /* Quando a tela for larga (desktop), o header vai pro topo */
-    @@media (min-width: 654px) {
+    @@media (min-width: 738px) {
         header {
-            top: var(--top-bottom);
+         
         }
     }
 </style>

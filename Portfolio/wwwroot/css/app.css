@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import "root.css";
 
 *{
@@ -7,15 +8,13 @@
 }
 
 body {
-    width: 100svw;
-    height: 100svh;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 100dvw;
+    height: 100dvh;
     background-color: var(--bg-primary);
     overflow: hidden;
-}
-
-#app {
-    height: 100%;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 #blazor-error-ui {

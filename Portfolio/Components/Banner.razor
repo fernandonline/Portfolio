@@ -1,14 +1,42 @@
+
 <section class="banner">
-    <img src="Assets/fernando-banner-4.3.jpg" alt="Banner Image" />
+    <TextAnimation Phrases="@Frases"/>
+        @code {
+            List<string[]> Frases = new()
+            {
+                new[] { "luiz", "fernando", "portfólio" },
+
+                new[] { "descubra", "meus projetos", "e habilidades" },
+
+                new[] { "obrigado", "por", "visitar" }
+            };
+        }
+
+    <div class="banner-dynamic">
+        <span>TESTE teste</span>
+
+    </div>
+
 </section>
 
 <style>
     .banner {
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
+        border: 2px solid white;
     }
-    .banner img {
-        width: 100dvw;
-        height: auto;
-        object-fit: cover;
+
+    .banner-dynamic {
+        
+    }
+
+    @@media (min-width: 738px) {
+        .banner {
+            flex-direction: row;
+            height: 50vh;
+        }
     }
 </style>
