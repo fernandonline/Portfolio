@@ -1,4 +1,4 @@
-<section class="banner">
+<section class="banner glass-ui">
 
     <div class="banner-text">
         <TextAnimation Phrases="@Frases"/>
@@ -13,37 +13,23 @@
                 new[] { "obrigado", "por", "visitar" }
             };
         }
-
-        <button class="banner-text_btn">Teste</button>
     </div>
 
-    <div class="banner-glass">
+    <div class="banner-card">
         <BannerCarousel Items="@BannerItems"/>
-    </div>
-
-    @code
-    {
-        List<BannerCarousel.CarouselItem> BannerItems = new()
+        @code
         {
-            new() {
+            List<BannerCarousel.CarouselItem> BannerItems = new()
+                {
+                new() {
                 ImageUrl   = "Assets/fernando-banner-4.3.jpg",
-                Description= "Nova atualização disponível!",
-                LinkUrl    = "/projetos",
-                LinkText   = "Saiba mais"
-            },
-            new() {
+                },
+                new() {
                 ImageUrl    = "Assets/fernando-banner-4.3.jpg",
-                Description = "Veja os melhores projetos.",
-            },
-            new() {
-              
-                Description = "Assets/fernando-banner-4.3",
-                LinkUrl     = "/contato",
-                LinkText    = "Fale conosco"
-            }
-        };
-    }
-
+                },
+                };
+        }
+    </div>
 </section>
 
 <style>
@@ -51,44 +37,44 @@
         color: var(--text-color);
         display: flex;
         flex-direction: column;
+        gap: 3rem;
         justify-content: space-around;
-        align-items: center;
-        gap: 20px;
+        padding: 1.5rem;
     }
 
     .banner-text {
         width: 100%;
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 2.2vw, 2.5rem);
     }
 
-    .banner-text_btn {
-        margin-top: 20px;
-    }
-
-    .banner-glass {
+    .banner-card {
+        position: relative;
         width: 100%;
-        height: 100%;
-        border-radius: 36px;
-        padding: 1.5rem;
-        background: rgba(60, 60, 70, 0.2);
-        backdrop-filter: blur(12px) saturate(120%);
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     @@media (min-width: 738px) {
         .banner {
             flex-direction: row;
             gap: 0;
+            height: auto;
+            padding: 2rem;
         }
 
         .banner-text {
             width: 40%;
-            font-size: 4rem;
+            font-size: clamp(2em, 2.2em, 3.5em);
+            display: flex;
+            align-items: center;
         }
 
-        .banner-glass {
+        .banner-card {
             width: 40%;
-            padding: 2rem;
+        }
+    }
+
+    @@media (min-width: 1120px) {
+        .banner-text {
+            font-size: 4.2em;
         }
     }
 </style>
