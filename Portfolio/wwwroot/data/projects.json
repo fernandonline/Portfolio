@@ -1,22 +1,22 @@
 [
   {
-    "Img": "Assets/fernando-banner-4.3.jpg",
-    "Title": "Projeto A",
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus varius ipsum, quis scelerisque sem ultrices vel. Vivamus blandit lacus velit, luctus semper leo laoreet vitae. Nullam ex lectus, semper vitae volutpat quis, tempor eu risus. Nulla facilisi. Suspendisse dictum consequat libero nec fermentum. Maecenas sit amet commodo erat. Proin erat massa, dapibus sit amet euismod et, pretium consequat purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam tincidunt facilisis tempus. Sed posuere vehicula magna, non lacinia mauris",
-    "GithubCode": "github",
-    "Deploy": "deploy"
+    "Img": "data/ProjectsImg/screenshot-lista-de-tarefas-ASP.NET-mvc.png",
+    "Title": "lista de tarefas em ASP.NET",
+    "Description": "Um projeto simples para gerenciar tarefas, desenvolvido em ASP.NET MVC com Entity Framework e SQLite. As seguintes funcionalidades estão disponiveis: Adicionar novas tarefas com título e data, listar todas as tarefas cadastradas, editar tarefas, marcar como concluídas e validação de campos obrigatórios.",
+    "GithubCode": "https://github.com/fernandonline/lista-de-tarefas-ASP.NET-mvc",
+    "Deploy": "https://lista-de-tarefas-asp-net-mvc.onrender.com/"
   },
   {
     "Img": "Assets/fernando-banner-4.3.jpg",
     "Title": "Projeto Loren",
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus varius ipsum, quis scelerisque sem ultrices vel. Vivamus blandit lacus velit, luctus semper leo laoreet vitae. Nullam ex lectus, semper vitae volutpat quis, tempor eu risus. Nulla facilisi. Suspendisse dictum consequat libero nec fermentum. Maecenas sit amet commodo erat. Proin erat massa, dapibus sit amet euismod et, pretium consequat purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam tincidunt facilisis tempus. Sed posuere vehicula magna, non lacinia mauris",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus varius ipsum, quis scelerisque sem ultrices vel. Vivamus blandit lacus velit, luctus semper leo laoreet vitae. Nullam ex lectus, semper vitae volutpat quis, tempor eu risus. Nulla facilisi. Suspendisse dictum consequat libero nec fermentum.",
     "GithubCode": "github",
     "Deploy": "deploy2"
   },
   {
     "Img": "Assets/fernando-banner-4.3.jpg",
     "Title": "App Mobile",
-    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus varius ipsum, quis scelerisque sem ultrices vel. Vivamus blandit lacus velit, luctus semper leo laoreet vitae. Nullam ex lectus, semper vitae volutpat quis, tempor eu risus. Nulla facilisi. Suspendisse dictum consequat libero nec fermentum. Maecenas sit amet commodo erat. Proin erat massa, dapibus sit amet euismod et, pretium consequat purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam tincidunt facilisis tempus. Sed posuere vehicula magna, non lacinia mauris",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus varius ipsum, quis scelerisque sem ultrices vel. Vivamus blandit lacus velit, luctus semper leo laoreet vitae. Nullam ex lectus, semper vitae volutpat quis, tempor eu risus. Nulla facilisi. Suspendisse dictum consequat libero nec fermentum.",
     "GithubCode": "github",
     "Deploy": "deploy3"
   }

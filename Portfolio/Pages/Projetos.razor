@@ -15,12 +15,12 @@
             <div class="card glass-ui">
                 <img class="card-img" src="@project.Img" alt="project image"/>
                 <div class="card-body">
-                    <h4 class="card-title">@project.Title</h4>
-                    <span class="card-text">@project.Description</span>
+                    <h4 class="card-body_title">@project.Title</h4>
+                    <span class="card-body_text">@project.Description</span>
 
                     <div class="card-body_btn">
-                        <a href="#" class="card-link">@project.GithubCode</a>
-                        <a href="#" class="card-link">@project.Deploy</a>
+                        <a href="@project.GithubCode" class="card-link" target="_blank"> Github </a>
+                        <a href="@project.Deploy" class="card-link" target="_blank"> Deploy </a>
                     </div>
                 </div>
             </div>
@@ -86,6 +86,16 @@
         gap: 10px;
         align-items: center;
         height: auto;
+    }
+
+    .card-body_text {
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        text-align: justify;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
     }
 
     .card-link {

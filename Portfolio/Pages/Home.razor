@@ -1,4 +1,43 @@
-@page "/"
+@page "/"  
 
-<PageTitle>Inicio</PageTitle>
-<Banner/>
+<PageTitle>Inicio</PageTitle>  
+<Banner/>  
+
+<section class="sobre">
+    <span>
+        Olá, sou estudante de TI, com experiência prática em desenvolvimento de software.
+        Tenho perfil autodidata e curiosidade continua para aprender, explorando tecnologias web full stack,
+        mobile, banco de dados e segurança da informação.
+    </span>
+
+    <style>
+        .sobre {
+            color: var(--text-color);
+            text-align: justify;
+            height: auto;
+        }
+
+        @@media (min-width: 738px) {
+            .sobre {
+                padding: 1rem 0rem;
+                font-size: 1.2rem;
+                width: 80%;
+                font-weight: 600;
+            }
+        }
+    </style>
+</section>
+
+<Logos/>
+
+<section class="recent-proj">  
+    <p>2 cards largos</p>  
+
+    <style>
+        .recent-proj {  
+            border: 1px solid white;  
+            width: 100%;  
+            height: 100px;
+        }  
+    </style>
+</section>
