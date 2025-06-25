@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '9.0.0'
+        dotnet-version: '9.0.4'
 
     - name: Publish Blazor WebAssembly
       run: dotnet publish Portfolio/Portfolio.csproj -c Release -o dist
