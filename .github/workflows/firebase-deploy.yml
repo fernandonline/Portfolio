@@ -20,7 +20,7 @@ jobs:
         dotnet-quality: 'preview'
 
     - name: Publish Blazor WebAssembly
-      run: dotnet publish Portfolio/Portfolio.csproj -c Release -o dist
+      run: dotnet publish Portfolio/Portfolio.csproj -c Release -o Portfolio/dist
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
