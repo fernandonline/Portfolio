@@ -1,30 +1,68 @@
 <div class="tools-icons">
-    <img class="glass-ui" src="Assets/dotnet-official.svg" alt="dotnet icon"/>
-    <img class="glass-ui" src="Assets/blazor-icon.svg" alt="blazor icon"/>
-    <img class="glass-ui" src="Assets/nodejs-icon.svg" alt="node icon"/>
-    <img class="glass-ui" src="Assets/vuejs-icon.svg" alt="vue framework icon"/>
+    <div class="glass-ui">
+        <img src="Assets/dotnet-svgrepo-com.svg" alt="dotnet icon"/>
+    </div>
 
-    <img class="glass-ui" src="Assets/nuxt-logo.svg" alt="nuxt framework icon" />
-    <img class="glass-ui" src="Assets/reactjs-icon.svg" alt="react icon"/>
-    <img class="glass-ui" src="Assets/postgresql-icon.svg" alt="postgresql data base logo"/>
-    <img class="glass-ui" src="Assets/android-official.svg" alt="android icon"/>
+    <div class="glass-ui">
+        <img src="Assets/blazor-icon.svg" alt="blazor icon" />
+    </div>
+
+    <div class="glass-ui">
+        <img src="Assets/nodejs-icon.svg" alt="node icon" />
+    </div>
+
+    <div class="glass-ui">
+        <img src="Assets/vuejs-icon.svg" alt="vue framework icon" />
+    </div>
+
+    <div class="glass-ui">
+        <img src="Assets/nuxt-logo.svg" alt="nuxt framework icon" />
+    </div>
+
+    <div class="glass-ui">
+        <img src="Assets/reactjs-icon.svg" alt="react icon" />
+    </div>
+
+    <div class="glass-ui">
+        <img src="Assets/postgresql-icon.svg" alt="postgresql data base logo" />
+    </div>
+
+    <div class="glass-ui">
+        <img src="Assets/android-official.svg" alt="android icon"/>
+    </div>
 
     <style>
         .tools-icons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            width: 100%;
+            justify-content: space-evenly;
             gap: 1rem;
-            height: 50px;
             padding: 0.5rem;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+
             
         }
-        .tools-icons img {
+        .tools-icons div {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             object-fit: contain;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
+        .tools-icons img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+        }
+
+        @@media(min-width: 768px) {
+            .tools-icons {
+                justify-content: center;
+            }
+        }
     </style>
 </div>

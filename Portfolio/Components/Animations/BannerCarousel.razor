@@ -41,7 +41,7 @@
             <div class="carousel-slide">
                 @if (!string.IsNullOrEmpty(item.ImageUrl))
                 {
-                    <img src="@item.ImageUrl" alt="@item.ImageUrl" class="carousel-background" />
+                    <img src="@item.ImageUrl" alt="@item.ImageUrl" class="carousel-background" loading="lazy" />
                 }
             </div>
         }
