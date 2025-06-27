@@ -1,4 +1,4 @@
-<section class="banner glass-ui">
+<section class="banner">
 
     <div class="banner-text">
         <TextAnimation Phrases="@Frases"/>
@@ -6,50 +6,31 @@
         {
             List<string[]> Frases = new()
             {
-                new[] { "luiz", "fernando", "portfólio" },
+                new[] { "LUIZ", "FERNANDO", "PORTFÓLIO" },
 
-                new[] { "descubra", "meus projetos", "e habilidades" },
+                new[] { "DESCUBRA", "MEUS PROJETOS", "E HABILIDADES" },
 
-                new[] { "obrigado", "por", "visitar" }
+                new[] { "OBRIGADO", "POR", "VISITAR" }
             };
         }
     </div>
-
-    <div class="banner-card">
-        <BannerCarousel Items="@BannerItems"/>
-        @code
-        {
-            List<BannerCarousel.CarouselItem> BannerItems = new()
-            {
-                new() 
-                {
-                    ImageUrl   = "Assets/fernando-banner-4.3.jpg",
-                },
-
-            };
-        }
-    </div>
-</section>
 
 <style>
     .banner {
         color: var(--text-color);
         display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        justify-content: space-around;
-        padding: 1.2rem;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 28vh;
+        padding: 0 0 0 1.5rem;
+        background: #11071F;
     }
 
     .banner-text {
-        width: 100%;
-        font-size: clamp(1.8rem, 2.2vw, 2.5rem);
-    }
-
-    .banner-card {
-        position: relative;
-        width: 100%;
+        
+        font-family: "Audiowide", sans-serif;
+        font-size: clamp(1.7rem, 2.2vw, 2.5rem);
     }
 
     @@media (min-width: 738px) {
@@ -57,7 +38,7 @@
             flex-direction: row;
             gap: 0;
             height: auto;
-            padding: 2rem;
+                padding: 6rem 6rem;
         }
 
         .banner-text {
@@ -66,15 +47,6 @@
             display: flex;
             align-items: center;
         }
-
-        .banner-card {
-            width: 40%;
-        }
-    }
-
-    @@media (min-width: 1120px) {
-        .banner-text {
-            font-size: 4.2em;
-        }
     }
 </style>
+</section>

@@ -1,10 +1,11 @@
 @page "/"
 @inject HttpClient Http
 
-<PageTitle>Inicio</PageTitle>  
-<Banner/>  
-
+<PageTitle>Inicio</PageTitle>   
+<Banner/>
 <section class="sobre">
+
+    <h2 class="sobre-titulo"> Sobre </h2>
     <span>
         Olá, sou estudante de TI, com experiência prática em desenvolvimento de software.
         Tenho perfil autodidata e curiosidade continua para aprender, explorando tecnologias web full stack,
@@ -14,15 +15,20 @@
     <style>
         .sobre {
             color: var(--text-color);
-            text-align: justify;
+            padding: 2rem 2rem;
             height: auto;
+        }
+
+        .sobre-titulo {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         @@media (min-width: 738px) {
             .sobre {
-                padding: 1rem 0rem;
+                padding: 2rem 10vw;
                 font-size: 1.2rem;
-                width: 80%;
                 font-weight: 600;
             }
         }
@@ -32,6 +38,9 @@
 <Logos/>
 
 <section class="recent-proj">
+
+    <h2 class="recent-proj_titulo"> Projetos em destaque </h2>
+
     @code {
         private List<Project> projects;
 
@@ -73,8 +82,17 @@
         .recent-proj {
             width: 100%;  
             color: var(--text-color);
+            padding: 2rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
+        .recent-proj_titulo {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
 
         .card {
             max-width: 280px;
@@ -130,10 +148,9 @@
         @@media (min-width: 768px) {
             .recent-proj {
                 display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                gap: 1rem;
+                gap: 3rem;
             }
         }
     </style>
