@@ -6,6 +6,14 @@
     border-radius: 28px;
 }
 
+#app {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #blazor-error-ui {
     color-scheme: light only;
     background: lightyellow;

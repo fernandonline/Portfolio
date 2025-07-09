@@ -1,84 +1,133 @@
-<h2 class="tools-icons_titulo"> Tecnologias </h2>
+<h2 class="tools-titulo"> Tecnologias </h2>
 
 <div class="tools-icons">
 
-
-    <div class="glass-ui">
-        <img src="Assets/dotnet-svgrepo-com.svg" alt="dotnet icon"/>
+    <div class="icon-container vue">
+        VUE
     </div>
 
-    <div class="glass-ui">
-        <img src="Assets/blazor-icon.svg" alt="blazor icon" />
+    <div class="icon-container nuxt">
+        NUXT
     </div>
 
-    <div class="glass-ui">
-        <img src="Assets/nodejs-icon.svg" alt="node icon" />
+    <div class="icon-container react">
+        REACT
     </div>
 
-    <div class="glass-ui">
-        <img src="Assets/vuejs-icon.svg" alt="vue framework icon" />
+    <div class="icon-container node">
+        NODE.js
     </div>
 
-    <div class="glass-ui">
-        <img src="Assets/nuxt-logo.svg" alt="nuxt framework icon" />
+    <div class="icon-container dotnet">
+        DOTNET
     </div>
 
-    <div class="glass-ui">
-        <img src="Assets/reactjs-icon.svg" alt="react icon" />
+    <div class="icon-container blazor">
+        BLAZOR
     </div>
 
-    <div class="glass-ui">
-        <img src="Assets/postgresql-icon.svg" alt="postgresql data base logo" />
+    <div class="icon-container maui">
+        .NET MAUI
     </div>
 
-    <div class="glass-ui">
-        <img src="Assets/android-official.svg" alt="android icon"/>
+    <div class="icon-container android">
+        ANDROID
     </div>
+
+    <div class="icon-container sql">
+        SQL
+    </div>
+
+    <div class="icon-container nosql">
+        noSQL
+    </div>
+
 
     <style>
-        .tools-icons {
-            width: 100%;
-            justify-content: space-evenly;
-            gap: 1rem;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: auto auto auto auto;
 
-            
-        }
-
-        .tools-icons_titulo {
+        .tools-titulo {
             font-size: 2rem;
             font-weight: 600;
-            padding: 0 0 2rem 2rem;
             color: var(--text-color);
         }
 
-        .tools-icons div {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: contain;
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+        .tools-icons {
+            margin: 2rem 0;
+            color: var(--text-color);
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap:.7rem;
         }
 
-        .tools-icons img {
-            width: 60%;
-            height: 60%;
-            object-fit: contain;
+        .icon-container {
+            border-radius: 16px;
+            padding: .5em .8em;
+            border: 1px solid currentColor;
+            font-size: 14px;
+            font-weight: bold;
+            color: inherit;
+            position: relative;
+            animation: glow 2s infinite alternate;
+            text-transform: uppercase;
         }
 
-        @@media(min-width: 768px) {
-            .tools-icons {
-                justify-content: center;
+        @@keyframes glow {
+            0% {
+                box-shadow: 0 0 0px currentColor;
+            } 100% {
+                box-shadow: 0 0 6px 2px currentColor;
             }
-
-            .tools-icons_titulo {
-                padding: 2rem 10vw;
-            }
         }
+
+        .vue {
+            color: #42b883;
+        }
+
+        .nuxt {
+            color: #00DC82;
+        }
+
+        .react {
+            color: #61dafb;
+        }
+
+        .node {
+            color: #339933;
+        }
+
+        .dotnet,
+        .blazor,
+        .maui {
+            color: #512bd4;
+        }
+
+        .android {
+            color: #3DDC84;
+        }
+
+        .sql {
+            color: #00758F;
+        }
+
+        .nosql {
+            color: #f29111;
+        }
+
+        .tailwind {
+            color: #38BDF8;
+        }
+
+        .git {
+            color: #F1502F;
+        }
+
+        .firebase {
+            color: #FFCA28;
+        }
+
+        .docker {
+            color: #0db7ed;
+        }
+
     </style>
 </div>
