@@ -7,25 +7,24 @@
 
     <h2 class="sobre-titulo"> Sobre </h2>
     <span>
-        Olá, sou estudante de TI, com experiência prática em desenvolvimento de software.
-        Tenho perfil autodidata e curiosidade continua para aprender, explorando tecnologias web full stack,
-        mobile, banco de dados e segurança da informação.
+        Estudante de TI, cursando análise e desenvolvimento de sistemas, com experiência prática em
+        desenvolvimento de software. Tenho perfil autodidata e curiosidade continua para aprender,
+        explorando tecnologias full stack web e mobile, banco de dados e segurança da informação.
     </span>
 
     <style>
         .sobre {
             color: var(--text-color);
-            height: auto;
-            margin: 2rem 0;
+            margin: 0 0 5rem 0;
         }
 
         .sobre-titulo {
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 2.5rem;
         }
 
-        @@media (min-width: 738px) {
+        @@media (min-width: 768px) {
             .sobre {
                 font-size: 1.2rem;
             }
@@ -37,118 +36,98 @@
 
 <section class="recent-proj">
 
-    <h2 class="recent-proj_titulo"> Projetos em destaque </h2>
+    <h2 class="recent-proj_titulo"> Destaques </h2>
 
-    @code {
-        private List<Project> projects;
+    <div class="recent-proj_list">
 
-        protected override async Task OnInitializedAsync()
-        {
-            var response = await Http.GetFromJsonAsync<List<Project>>("data/projects.json");
-            projects = response?.TakeLast(2).ToList() ?? new();
-        }
+        @code {
+            private List<Project> projects;
 
-        public class Project
-        {
-            public string Title { get; set; }
-            public string Img { get; set; }
-            public string GithubCode { get; set; }
-            public string Deploy { get; set; }
-        }
-    }
+            protected override async Task OnInitializedAsync()
+            {
+                var response = await Http.GetFromJsonAsync<List<Project>>("data/projects.json");
+                projects = response?.TakeLast(2).ToList() ?? new();
+            }
 
-    @if (projects is not null)
-    {
-        @foreach (var project in projects)
-        {
-            <div class="card glass-ui">
-                <img class="card-img" src="@project.Img" alt="project image" />
-                <div class="card-body">
-                    <h4 class="card-body_title">@project.Title</h4>
-      
-                    <div class="card-body_btn">
-                        <a href="@project.GithubCode" class="card-link" target="_blank">Github</a>
-                        <a href="@project.Deploy" class="card-link" target="_blank">Deploy</a>
-                    </div>
-                </div>
-            </div>
-        }
-    }
-
-
-    <style>
-        .recent-proj {
-            width: 100%;  
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .recent-proj_titulo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .card {
-            max-width: 280px;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-img {
-            aspect-ratio: 16/9;
-            border-top-right-radius: 28px;
-            border-top-left-radius: 28px;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            padding: 1em;
-            gap: 0.5em;
-        }
-
-        .card-body_btn {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            height: auto;
-        }
-
-        .card-body_text {
-            overflow: hidden;
-            white-space: normal;
-            text-overflow: ellipsis;
-            text-align: justify;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 4;
-        }
-
-        .card-link {
-            text-align: center;
-            padding: 0.5rem 0.5rem;
-            border-radius: 16px;
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            background: #646eef;
-        }
-
-        @@media (min-width: 768px) {
-            .recent-proj {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 3rem;
+            public class Project
+            {
+                public string? Title { get; set; }
+                public string? Img { get; set; }
+                public string? Description { get; set; }
+   
             }
         }
-    </style>
+
+        @if (projects is not null)
+        {
+            @foreach (var project in projects)
+            {
+                <div class="card">
+                    <img class="card-img" src="@project.Img" alt="project image" />
+                    <div class="card-body">
+                        <h4 class="card-body_title">@project.Title</h4>
+
+                        <button class="card-btn_modal">ver mais</button>
+                    </div>
+                </div>
+            }
+        }
+
+
+        <style>
+            .recent-proj {
+                width: 100%;  
+                color: var(--text-color);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .recent-proj_titulo {
+                font-size: 2rem;
+                font-weight: 600;
+                align-self: start;
+                margin-bottom: 3rem;
+            }
+
+            .card {
+                border-radius: 0 0 16px 16px;
+                margin-bottom: 3rem;
+                background-color: rgba(255, 255, 255, 0.02);
+                backdrop-filter: blur(10px) saturate(70%);
+                -webkit-backdrop-filter: blur(10px) saturate(160%);
+            }
+
+            .card-img {
+                width: 100%;
+                aspect-ratio: 16/9;
+                object-fit: cover;
+                border-radius: 16px 16px 0 0;
+            }
+
+            .card-body {
+                padding: 1em;   
+            }
+
+           .card-body_title {
+                font-size: 1.2em;
+           }
+
+            .card-btn_modal {
+                height: 2rem;
+                font-size: 1rem;
+                color: var(--text-color);
+                background: transparent;
+                border: none;
+            }
+
+            @@media (min-width: 768px) {
+                .recent-proj {
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                
+                }
+            }
+        </style>
+    </div>
 </section>

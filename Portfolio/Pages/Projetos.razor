@@ -2,31 +2,6 @@
 @inject HttpClient Http
 
 <PageTitle>Projetos</PageTitle>
-<section class="main-proj">
-
-    @if (projects == null)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        @foreach (var project in projects)
-        {
-            <div class="card glass-ui">
-                <img class="card-img" src="@project.Img" alt="project image"/>
-                <div class="card-body">
-                    <h4 class="card-body_title">@project.Title</h4>
-                    <span class="card-body_text">@project.Description</span>
-
-                    <div class="card-body_btn">
-                        <a href="@project.GithubCode" class="card-link" target="_blank"> Github </a>
-                        <a href="@project.Deploy" class="card-link" target="_blank"> Deploy </a>
-                    </div>
-                </div>
-            </div>
-        }
-    }
-</section>
 
 @code {
     private ProjectsList[]? projects;
@@ -40,85 +15,99 @@
     {
         public string? Img { get; set; }
         public string? Title { get; set; }
-        public string? Description { get; set; }
-        public string? GithubCode { get; set; }
-        public string? Deploy { get; set; }
+        public List<string>? Tech { get; set; }
     }
 }
 
-<style>
-    .main-proj {
-        display: grid;
-        grid-template-columns: 1fr;
+<section class="main-proj">
 
-        gap: 2.5rem;
-        padding: 6rem 3rem;
-        width: 100%;
-        color: var(--text-color);
-        justify-items: center;
+    @if (projects == null)
+    {
+        <p><em>Loading...</em></p>
     }
+    else
+    {
+        @foreach (var project in projects)
+        {
+            <div class="card glass-ui">
+                <img class="card-img" src="@project.Img" alt="project image" />
+                <div class="card-body">
+                    <h4 class="card-body_title">@project.Title</h4>
+                    <div class="card-body_icon">
+                        @if (project.Tech?.Any() == true)
+                        {
+                            @foreach (var tech in project.Tech)
+                            {
+                                <div class="icon-container @tech.ToLowerInvariant()">@tech</div>
+                            }
+                        }
+                    </div>
+                    <button class="card-btn_modal">ver mais</button>
+                </div>
+            </div>
 
-   .card {
-       max-width: 280px;
-       height: auto;
-       display: flex;
-       flex-direction: column;
-   }
-
-   .card-img {
-       aspect-ratio: 16/9;
-       border-top-right-radius: 28px;
-       border-top-left-radius: 28px;
-       width: 100%;
-       object-fit: cover;
-    }
-
-    .card-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        padding: 1em;
-        gap: 0.5em;
-    }
-
-    .card-body_btn {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        height: auto;
-    }
-
-    .card-body_text {
-        overflow: hidden;
-        white-space: normal;
-        text-overflow: ellipsis;
-        text-align: justify;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-    }
-
-    .card-link {
-        text-align: center;
-        padding: 0.5rem 0.5rem;
-        border-radius: 16px;
-        color: var(--text-color);
-        text-decoration: none;
-        font-weight: 500;
-        background: #646eef;
-    }
-
-
-    @@media (min-width: 768px) {
-        .main-proj {
-            grid-template-columns: repeat(2, 1fr);
         }
     }
 
-    @@media (min-width: 1120px) {
+    <style>
         .main-proj {
-            grid-template-columns: repeat(3, 1fr);
+            color: var(--text-color);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            width: 100%;
+            justify-items: center;
+            padding: 30vw 0;
         }
-    }
-</style>
+
+        .card {
+            max-width: 300px;
+            border-radius: 0 0 16px 16px;
+            background-color: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px) saturate(70%);
+            -webkit-backdrop-filter: blur(10px) saturate(160%);
+        }
+
+        .card-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .card-body {
+            padding: 1em;
+        }
+
+        .card-body_title {
+            font-size: 1.2em;
+        }
+
+        .card-body_icon {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-btn_modal {
+            height: 2rem;
+            font-size: 1rem;
+            color: var(--text-color);
+            background: transparent;
+            border: none;
+        }
+
+        @@media (min-width: 768px) {
+            .main-proj {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @@media (min-width: 1120px) {
+            .main-proj {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</section>

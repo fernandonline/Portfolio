@@ -18,6 +18,6 @@ body {
 }
 
 :root {
-    --bg-primary: #000; /*#0F121B*/
+    --bg-primary: #0F121B;
     --text-color: #FFF;
 }
