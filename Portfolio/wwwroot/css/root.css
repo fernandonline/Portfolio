@@ -1,23 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    width: 100dvw;
-    height: 100dvh;
-    background-color: var(--bg-primary);
-    overflow: hidden;
-    font-family: "Quicksand", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    overflow-y: auto;
-}
-
 :root {
-    --bg-primary: #0F121B;
-    --text-color: #FFF;
+    --vue: #42b883;
+    --nuxt: #00DC82;
+    --react: #61dafb;
+    --node: #339933;
+    --dotnet: #7042e6;
+    --blazor: #7f3dcf;
+    --maui: #6937d3;
+    --android: #3DDC84;
+    --sql: #808080ff;
+    --js: #f7df1e;
+    --ts: #3178c6;
 }
+
+.vue { color: var(--vue); }
+.nuxt { color: var(--nuxt);}
+.react { color: var(--react); }
+.node { color: var(--node); }
+.dotnet { color: var(--dotnet); }
+.aspnet { color: var(--dotnet); }
+.blazor { color: var(--blazor); }
+.maui { color: var(--maui); }
+.android { color: var(--android); }
+.sql { color: var(--sql); }
+.javascript { color: var(--js); }
+.typescript { color: var(--ts); }

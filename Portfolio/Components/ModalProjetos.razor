@@ -1,0 +1,59 @@
+@if (IsOpen && P is not null)
+{
+    <div class="modal-backdrop" @onclick="CloseModal">
+        <div class="modal-content" @onclick:stopPropagation>
+            <button class="btn-close" @onclick="CloseModal">×</button>
+
+            <img src="@P.Img" alt="@P.Title" class="modal-img" />
+            <h2>@P.Title</h2>
+            <p>@P.Description</p>
+
+            @if (P.Tech?.Any() == true)
+            {
+                <div class="modal-tech">
+                    @foreach (var tech in P.Tech)
+                    {
+                        <span class="tech-label">@tech</span>
+                    }
+                </div>
+            }
+
+            <div class="modal-links">
+                @if (!string.IsNullOrEmpty(P.GithubCode))
+                {
+                    <a href="@P.GithubCode" target="_blank" class="btn-link">GitHub</a>
+                }
+                @if (!string.IsNullOrEmpty(P.Deploy))
+                {
+                    <a href="@P.Deploy" target="_blank" class="btn-link">Deploy</a>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    [Parameter] public ProjectsList? Project { get; set; }
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private ProjectsList? P => Project;
+
+    public class ProjectsList
+    {
+        public string? Img { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public List<string>? Tech { get; set; }
+        public string? GithubCode { get; set; }
+        public string? Deploy { get; set; }
+    }
+
+    private async Task CloseModal()
+    {
+        if (OnClose.HasDelegate)
+            await OnClose.InvokeAsync();
+    }
+}
+

@@ -1,0 +1,50 @@
+<div class="card bg-dark mt-5" style="width: 18rem;">
+    <img src="@Projeto.Img" class="card-img-top" style="max-height:160px; object-fit:cover;" alt="@Projeto.Title" />
+    <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">@Projeto.Title</h5>
+
+        <div class="d-flex mb-2 flex-wrap">
+            @if (Projeto.Tech?.Any() == true)
+            {
+                @foreach (var tech in Projeto.Tech)
+                {
+                    <div class="card-icons @tech.ToLowerInvariant()">
+                        <div style="color:#FFF; text-transform: uppercase;">
+                            @tech
+                        </div>
+
+                        <style>
+                            .card-icons {
+                                font-size: .6rem;
+                                padding: 0.2rem 0.6rem;
+                                border-radius: 1.5rem;
+                                background-color: currentColor;
+                            }
+                        </style>
+                    </div>
+                }
+            }
+        </div>
+
+        <p class="card-text line-clamp">
+            @Projeto.Description
+            <style>
+                .line-clamp {
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            </style>
+        </p>
+
+        <button class="btn btn-outline-light btn-sm" @onclick="() => OnVerMais.InvokeAsync(Projeto)">Ver mais</button>
+    
+    </div>
+</div>
+
+@code {
+    [Parameter] public Projeto Projeto { get; set; }
+    [Parameter] public EventCallback<Projeto> OnVerMais { get; set; }
+}
