@@ -1,7 +1,7 @@
 @page "/projetos"
 @using System.Text.Json
 @inject HttpClient Http
-
+<PageTitle>projetos</PageTitle>
 @code {
     private List<Projeto>? ListaProjetos;
     private Projeto? ProjetoSelecionado;
@@ -25,12 +25,14 @@
 }
 else
 {
-    <div class="d-flex flex-wrap justify-content-center gap-4 pt-5">
-        @foreach (var projeto in ListaProjetos.OrderByDescending(p => p.Id))
-        {
-            <ProjetoCard Projeto="projeto" OnVerMais="AbrirModal" />
-        }
-    </div>
+    <Container>
+        <div class="d-flex flex-wrap gap-4 justify-content-md-evenly" style="padding-top:8rem;">
+            @foreach (var projeto in ListaProjetos.OrderByDescending(p => p.Id))
+            {
+                <ProjetoCard Projeto="projeto" OnVerMais="AbrirModal" />
+            }
+        </div>
+    </Container>
 }
 
 @if (ProjetoSelecionado != null)

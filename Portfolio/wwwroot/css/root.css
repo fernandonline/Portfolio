@@ -1,15 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-    --vue: #42b883;
-    --nuxt: #00DC82;
-    --react: #61dafb;
-    --node: #339933;
-    --dotnet: #7042e6;
-    --blazor: #7f3dcf;
-    --maui: #6937d3;
-    --android: #3DDC84;
-    --sql: #808080ff;
-    --js: #f7df1e;
-    --ts: #3178c6;
+    --vue: #2a9f74;
+    --nuxt: #00b46a;
+    --react: #3ba7c5;
+    --node: #267326;
+    --dotnet: #5a33c8;
+    --blazor: #6829b5;
+    --maui: #522bbf;
+    --android: #2aa66a;
+    --sql: #5a5a5a;
+    --js: #bfa500;
+    --ts: #225d99;
+}
+
+:root {
+    --font-base: 'Fira Sans', sans-serif;
+    --cor-texto: #FFF;
+    --cor-bg: #0f121b;
 }
 
 .vue { color: var(--vue); }

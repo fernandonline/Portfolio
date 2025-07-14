@@ -1,9 +1,9 @@
 @import "root.css";
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: black;
-    color: white;
+    font-family: var(--font-base);
+    color: var(--cor-texto);
+    background-color: var(--cor-bg);
 }
 
 .btn-primary {
