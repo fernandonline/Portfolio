@@ -3,13 +3,13 @@
     <Container>
         <!--<NavLink class="navbar-brand text-white" href="/">Navbar</NavLink>-->
 
-        <div class="navbar-nav d-inline d-flex flex-row gap-5 justify-content-end w-100">
+        <div class="navbar-nav d-inline d-flex flex-row gap-3 justify-content-end w-100">
             <NavLink href="/" class="h-item text-white">
                 <span>index</span>
             </NavLink>
 
             <NavLink href="/projetos" class="h-item text-white">
-                <span>projetos</span>
+                <span style="padding-right:10px;">projetos</span>
             </NavLink>
         </div>
 
@@ -18,9 +18,10 @@
                 z-index: 10;
                 min-height: 4rem;
                 color: var(--cor-texto);
-                background-color: rgba(255, 255, 255, 0.03);
-                backdrop-filter: blur(3px) brightness(1.1) saturate(70%);
-                -webkit-backdrop-filter: saturate(160%);
+                background-color: rgba(0, 0, 0, 0.08);
+                backdrop-filter: blur(10px) brightness(0.9) saturate(120%);
+                -webkit-backdrop-filter: blur(10px) brightness(0.9) saturate(120%);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             }
 
             .h-item {

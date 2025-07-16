@@ -1,32 +1,18 @@
 @page "/projetos"
+@using Portfolio.Layout
 @using System.Text.Json
 @inject HttpClient Http
+
 <PageTitle>projetos</PageTitle>
-@code {
-    private List<Projeto>? ListaProjetos;
-    private Projeto? ProjetoSelecionado;
-
-    protected override async Task OnInitializedAsync()
-    {
-        var json = await Http.GetStringAsync("data/projects.json");
-        ListaProjetos = JsonSerializer.Deserialize<List<Projeto>>(json, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        });
-    }
-
-    void AbrirModal(Projeto projeto) => ProjetoSelecionado = projeto;
-    void FecharModal() => ProjetoSelecionado = null;
-}
 
 @if (ListaProjetos is null)
 {
-    <p class="text-white">Carregando...</p>
+    <p class="text-white pt-5">Carregando...</p>
 }
 else
 {
     <Container>
-        <div class="d-flex flex-wrap gap-4 justify-content-md-evenly" style="padding-top:8rem;">
+        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-sm-evenly pb-5" style="padding-top:7rem;">
             @foreach (var projeto in ListaProjetos.OrderByDescending(p => p.Id))
             {
                 <ProjetoCard Projeto="projeto" OnVerMais="AbrirModal" />
@@ -35,30 +21,38 @@ else
     </Container>
 }
 
-@if (ProjetoSelecionado != null)
-{
-    <div class="modal fade show d-block bg-dark bg-opacity-75" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header">
-                    <h5 class="modal-title">@ProjetoSelecionado.Title</h5>
-                    <button class="btn-close btn-close-white" @onclick="FecharModal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>@ProjetoSelecionado.Description</p>
+<ModalProjetos Projeto="@Selecionado" Visivel="@MostrarModal" OnClose="@FecharModal" />
 
-                    @if (!string.IsNullOrWhiteSpace(ProjetoSelecionado.GithubCode))
-                    {
-                        <a class="btn btn-outline-light me-2" target="_blank" href="@ProjetoSelecionado.GithubCode">GitHub</a>
-                    }
+@code {
+    private List<Projeto>? ListaProjetos;
+    private Projeto? Selecionado;
+    private bool MostrarModal = false;
 
-                    @if (!string.IsNullOrWhiteSpace(ProjetoSelecionado.Deploy))
-                    {
-                        <a class="btn btn-outline-light" target="_blank" href="@ProjetoSelecionado.Deploy">Ver Online</a>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var json = await Http.GetStringAsync("data/projects.json");
+            ListaProjetos = JsonSerializer.Deserialize<List<Projeto>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao carregar projetos: {ex.Message}");
+        }
+    }
+
+    private void AbrirModal(Projeto projeto)
+    {
+        Selecionado = projeto;
+        MostrarModal = true;
+    }
+
+    private void FecharModal()
+    {
+        MostrarModal = false;
+        Selecionado = null;
+    }
 }
-

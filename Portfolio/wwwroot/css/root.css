@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --font-base: 'Fira Sans', sans-serif;
+    --font-pop: 'Poppins', sans-serif;
+    --cor-texto: #FFF;
+    --cor-bg: #0f121b;
+}
 
 :root {
     --vue: #2a9f74;
@@ -9,15 +17,14 @@
     --blazor: #6829b5;
     --maui: #522bbf;
     --android: #2aa66a;
-    --sql: #5a5a5a;
+    --windows: #0078D6;
+    --web: #6c6c6c;
+    --sql: #003856;
     --js: #bfa500;
     --ts: #225d99;
-}
-
-:root {
-    --font-base: 'Fira Sans', sans-serif;
-    --cor-texto: #FFF;
-    --cor-bg: #0f121b;
+    --bootstrap: #7952b3;
+    --tailwind: #38bdf8;
+    --nest: #e0234e;
 }
 
 .vue { color: var(--vue); }
@@ -29,6 +36,11 @@
 .blazor { color: var(--blazor); }
 .maui { color: var(--maui); }
 .android { color: var(--android); }
+.windows { color: var(--windows); }
+.web { color: var(--web); }
 .sql { color: var(--sql); }
 .javascript { color: var(--js); }
 .typescript { color: var(--ts); }
+.bootstrap { color: var(--bootstrap); }
+.tailwind {  color: var(--tailwind); }
+.nest { color: var(--nest); }

@@ -1,59 +1,38 @@
-@if (IsOpen && P is not null)
+@if (Projeto != null && Visivel)
 {
-    <div class="modal-backdrop" @onclick="CloseModal">
-        <div class="modal-content" @onclick:stopPropagation>
-            <button class="btn-close" @onclick="CloseModal">×</button>
+    <div class="modal fade show d-block bg-dark bg-opacity-75" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <img src="@Projeto.Img" class="card-img-top" style="max-height:160px; object-fit:cover;" alt="@Projeto.Title" />
+                    <h5 class="modal-title">@Projeto.Title</h5>
+                    <button class="btn-close btn-close-white" @onclick="Fechar">X</button>
+                </div>
+                <div class="modal-body">
+                    <p>@Projeto.Description</p>
 
-            <img src="@P.Img" alt="@P.Title" class="modal-img" />
-            <h2>@P.Title</h2>
-            <p>@P.Description</p>
-
-            @if (P.Tech?.Any() == true)
-            {
-                <div class="modal-tech">
-                    @foreach (var tech in P.Tech)
+                    @if (!string.IsNullOrWhiteSpace(Projeto.GithubCode))
                     {
-                        <span class="tech-label">@tech</span>
+                        <a class="btn btn-outline-light me-2" target="_blank" href="@Projeto.GithubCode">GitHub</a>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(Projeto.Deploy))
+                    {
+                        <a class="btn btn-outline-light" target="_blank" href="@Projeto.Deploy">Ver Online</a>
                     }
                 </div>
-            }
-
-            <div class="modal-links">
-                @if (!string.IsNullOrEmpty(P.GithubCode))
-                {
-                    <a href="@P.GithubCode" target="_blank" class="btn-link">GitHub</a>
-                }
-                @if (!string.IsNullOrEmpty(P.Deploy))
-                {
-                    <a href="@P.Deploy" target="_blank" class="btn-link">Deploy</a>
-                }
             </div>
         </div>
     </div>
 }
 
-
 @code {
-    [Parameter] public ProjectsList? Project { get; set; }
-    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public Projeto? Projeto { get; set; }
+    [Parameter] public bool Visivel { get; set; }
     [Parameter] public EventCallback OnClose { get; set; }
 
-    private ProjectsList? P => Project;
-
-    public class ProjectsList
+    private async Task Fechar()
     {
-        public string? Img { get; set; }
-        public string? Title { get; set; }
-        public string? Description { get; set; }
-        public List<string>? Tech { get; set; }
-        public string? GithubCode { get; set; }
-        public string? Deploy { get; set; }
-    }
-
-    private async Task CloseModal()
-    {
-        if (OnClose.HasDelegate)
-            await OnClose.InvokeAsync();
+        await OnClose.InvokeAsync();
     }
 }
-

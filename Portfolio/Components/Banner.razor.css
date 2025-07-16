@@ -28,7 +28,6 @@
         .wave-section .wave span {
             content: "";
             position: absolute;
-            /* SOLUÇÃO: Usar max() para garantir preenchimento total da largura */
             width: max(300vw, 325vh);
             height: max(300vw, 325vh);
             top: -65vh;
@@ -36,7 +35,6 @@
             transform: translate(-50%, -75%);
         }
 
-/* Media query para desktop - força largura mínima */
 @media (min-width: 1024px) {
     .wave-section .wave span {
         width: max(350vw, 325vh);

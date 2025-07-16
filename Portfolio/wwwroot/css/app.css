@@ -6,6 +6,26 @@ html, body {
     background-color: var(--cor-bg);
 }
 
+.icon-container {
+    font-family: var(--font-pop);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 1.4em;
+    animation: glow 1s infinite alternate;
+    border: 1px solid currentColor;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 2px currentColor;
+    }
+
+    100% {
+        box-shadow: 0 0 7px 3px currentColor;
+    }
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
