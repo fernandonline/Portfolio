@@ -1,9 +1,12 @@
-<header class="navbar fixed-top">
+<header class="navbar fixed-top d-flex flex-row">
 
     <Container>
-        <!--<NavLink class="navbar-brand text-white" href="/">Navbar</NavLink>-->
+        <NavLink class="navbar-brand w-25" href="/">
+            <img src="/assets/portfolio-logo.png" alt="Logo" width="29" height="31">
+        </NavLink>
 
-        <div class="navbar-nav d-inline d-flex flex-row gap-3 justify-content-end w-100">
+
+        <div class="d-flex gap-5">
             <NavLink href="/" class="h-item text-white">
                 <span>index</span>
             </NavLink>
@@ -16,7 +19,6 @@
         <style>
             header {
                 z-index: 10;
-                min-height: 4rem;
                 color: var(--cor-texto);
                 background-color: rgba(0, 0, 0, 0.08);
                 backdrop-filter: blur(10px) brightness(0.9) saturate(120%);
@@ -28,7 +30,6 @@
                 cursor: pointer;
                 text-decoration: none;
             }
-
         </style>
     </Container>
 </header>

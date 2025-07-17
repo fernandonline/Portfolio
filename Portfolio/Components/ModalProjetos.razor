@@ -1,12 +1,12 @@
 @if (Projeto != null && Visivel)
 {
-    <div class="modal fade show d-block bg-dark bg-opacity-75" tabindex="-1">
+    <div class="modal fade show d-block bg-dark bg-opacity-75 align-content-center" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <img src="@Projeto.Img" class="card-img-top" style="max-height:160px; object-fit:cover;" alt="@Projeto.Title" />
-                    <h5 class="modal-title">@Projeto.Title</h5>
-                    <button class="btn-close btn-close-white" @onclick="Fechar">X</button>
+                <div class="modal-header d-flex flex-column">
+                    <img src="@Projeto.Img" class="card-img-top" style="object-fit:cover;" alt="@Projeto.Title" />
+                    <h5 class="modal-title align-self-start mt-2">@Projeto.Title</h5>
+                    <button class="btn-close" @onclick="Fechar">X</button>
                 </div>
                 <div class="modal-body">
                     <p>@Projeto.Description</p>
@@ -18,7 +18,7 @@
 
                     @if (!string.IsNullOrWhiteSpace(Projeto.Deploy))
                     {
-                        <a class="btn btn-outline-light" target="_blank" href="@Projeto.Deploy">Ver Online</a>
+                        <a class="btn btn-outline-light" target="_blank" href="@Projeto.Deploy">Abrir Online</a>
                     }
                 </div>
             </div>
