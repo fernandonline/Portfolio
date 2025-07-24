@@ -19,7 +19,7 @@
     --android: #2aa66a;
     --windows: #0078D6;
     --web: #6c6c6c;
-    --sql: #003856;
+    --sql: #0b4b6e;
     --js: #bfa500;
     --ts: #225d99;
     --bootstrap: #7952b3;
@@ -32,7 +32,6 @@
 .react { color: var(--react); }
 .node { color: var(--node); }
 .dotnet { color: var(--dotnet); }
-.aspnet { color: var(--dotnet); }
 .blazor { color: var(--blazor); }
 .maui { color: var(--maui); }
 .android { color: var(--android); }

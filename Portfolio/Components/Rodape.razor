@@ -1,6 +1,6 @@
 <footer class="bg-black pt-4 pb-5">
     <Container>
-        <div class="d-flex flex-column gap-1">
+        <div class="d-flex flex-column gap-2">
             <NavLink href="/" class="h-item text-white">
                 index
             </NavLink>
@@ -10,11 +10,19 @@
             <p>em construção</p>
         </div>
 
-        <span class="d-flex justify-content-center align-items-center gap-2 pt-3">
+        <span class="d-flex justify-content-center align-items-center gap-2 pt-4">
             made in 
-            <span class="icon-container blazor" style="font-size:.8em; padding:.4em;">Blazor</span>
+            <span class="footer-icon-container" style="font-size:.8em; padding:.5em;"> Blazor </span>
             with
-            <span class="icon-container blazor" style="font-size:.8em; padding:.4em;">C#</span>
+            <span class="footer-icon-container" style="font-size:.8em; padding:.4em;"> C# </span>
+
+            <style>
+                .footer-icon-container {
+                    font-family: var(--font-pop);
+                    border-radius: 1.5em;
+                    border: 1px solid #6829b5;
+                }
+            </style>
         </span>
     </Container>
 </footer>

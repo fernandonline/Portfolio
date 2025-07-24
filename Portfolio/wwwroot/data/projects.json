@@ -13,7 +13,7 @@
     "Img": "data/ProjectsImg/swagger-exemple.png",
     "Title": "API Contatos",
     "Description": "esse projeto de introdução ao .NET framework permite um CRUD de contatos com banco de dados local json-server.",
-    "Tech": [ "aspnet", "web"],
+    "Tech": [ "dotnet", "web"],
     "GithubCode": "https://github.com/fernandonline/contatos-controllerAPI",
     "Deploy": ""
   },
@@ -22,7 +22,7 @@
     "Img": "data/ProjectsImg/screenshot-lista-de-tarefas-ASP.NET-mvc.png",
     "Title": "Todo List",
     "Description": "Projeto para gerenciar tarefas, desenvolvido em ASP.NET MVC com Entity Framework e SQLite. As seguintes funcionalidades estão disponiveis: Adicionar novas tarefas com título e data, listar todas as tarefas cadastradas, editar tarefas, marcar como concluídas e validação de campos obrigatórios.",
-    "Tech": ["aspnet", "sql", "web"],
+    "Tech": ["dotnet", "sql", "web"],
     "GithubCode": "https://github.com/fernandonline/lista-de-tarefas-ASP.NET-mvc",
     "Deploy": "https://lista-de-tarefas-asp-net-mvc.onrender.com/"
   },
@@ -40,7 +40,7 @@
     "Img": "data/ProjectsImg/App-colaborador.png",
     "Title": "App Colaborador",
     "Description": "Aplicativo multiplataforma construido em net maui, permite cadastro, edição e exclisão de lista de colaboradores, contendo nome, email, salário e data do inicio. O objetivo foi aprender desenvolver um app android e windows com suporte a banco de dados local e arquitetura MVVM.",
-    "Tech": [ "maui", "sql", "android", "windows" ],
+    "Tech": [ ".net maui", "sql", "android", "windows" ],
     "GithubCode": "https://github.com/fernandonline/colaborador-crud-mvvm_net-maui",
     "Deploy": ""
   }
