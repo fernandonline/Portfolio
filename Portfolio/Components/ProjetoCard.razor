@@ -1,6 +1,16 @@
-<div class="card bg-dark" style="width: 18rem;">
-    <img src="@Projeto?.Img" class="card-img-top" style="max-height:160px; object-fit:cover;" alt="@Projeto?.Title" />
-    <div class="card-body d-flex flex-column justify-content-between">
+@code {
+    [Parameter] public Projeto? Projeto { get; set; }
+    [Parameter] public EventCallback<Projeto> OnVerMais { get; set; }
+}
+
+<div class="card bg-transparent d-flex align-items-center p-2">
+
+    <img src="@Projeto?.Img"
+         class="card-img-top ratio-16x9"
+         alt="@Projeto?.Title"
+    />
+
+    <div class="card-body d-flex flex-column position-absolute bottom-0 mb-2">
         <h5 class="card-title">@Projeto?.Title</h5>
 
         <div class="d-flex mb-2 flex-wrap gap-1">
@@ -9,15 +19,6 @@
                 @foreach (var tech in Projeto.Tech)
                 {
                     <div class="card-icons @tech.ToLowerInvariant()">
-                        <style>
-                            .card-icons {
-                                font-weight: 600;
-                                font-size: .5rem;
-                                padding: .1rem 0.5rem;
-                                border-radius: 1.5rem;
-                                background-color: currentColor;
-                            }
-                        </style>
 
                         <div style="color:#FFF; text-transform: uppercase;">
                             @tech
@@ -27,25 +28,8 @@
             }
         </div>
 
-        <p class="card-text line-clamp">
-            @Projeto?.Description
-            <style>
-                .line-clamp {
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                }
-            </style>
-        </p>
-
-        <button class="btn btn-outline-light btn-sm" @onclick="() => OnVerMais.InvokeAsync(Projeto)">Ver mais</button>
-    
+        <button class="btn btn-outline-light btn-sm" @onclick="() =>OnVerMais.InvokeAsync(Projeto)">
+            Ver mais
+        </button>
     </div>
 </div>
-
-@code {
-    [Parameter] public Projeto? Projeto { get; set; }
-    [Parameter] public EventCallback<Projeto> OnVerMais { get; set; }
-}

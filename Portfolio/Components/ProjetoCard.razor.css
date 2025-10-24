@@ -1,0 +1,25 @@
+.card {
+    border: 2px dashed;
+    border-radius: var(--border-r);
+}
+
+.card-img-top {
+    object-fit: cover;
+    border-radius: var(--border-r);
+}
+
+.card-body {
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    width: 98%;
+    border-bottom-left-radius: var(--border-r);
+    border-bottom-right-radius: var(--border-r);
+}
+
+.card-icons {
+    background: var(--cor-bg);
+    font-size: .6em;
+    padding: .2rem 0.4rem;
+    border: 1px solid white;
+    border-radius: var(--border-r);
+}

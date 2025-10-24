@@ -1,0 +1,10 @@
+.proj-style {
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 992px) {
+    .proj-style {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

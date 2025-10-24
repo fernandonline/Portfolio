@@ -1,5 +1,6 @@
 @using System.Text.Json
 @inject HttpClient Http
+
 <section class="w-100 mb-5">
 
     <h2 class="mb-5">Projetos Recentes</h2>
@@ -15,7 +16,7 @@
         .Take(2)
         .ToList();
 
-        <div class="d-flex flex-wrap justify-content-center gap-4">
+    <div class="d-flex flex-column align-items-center flex-md-row gap-5 gap-md-4">
             @foreach (var projeto in maisRecentes)
             {
                 <ProjetoCard Projeto="projeto" OnVerMais="AbrirModal" />

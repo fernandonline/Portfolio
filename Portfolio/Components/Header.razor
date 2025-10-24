@@ -1,6 +1,6 @@
 <header class="navbar fixed-top d-flex flex-row">
 
-    <Container>
+    <div class="container">
         <NavLink class="navbar-brand w-25" href="/">
             <img src="/assets/portfolio-logo.png" alt="Logo" width="29" height="31">
         </NavLink>
@@ -18,12 +18,11 @@
 
         <style>
             header {
-                z-index: 10;
                 color: var(--cor-texto);
-                background-color: rgba(0, 0, 0, 0.08);
-                backdrop-filter: blur(10px) brightness(0.9) saturate(120%);
-                -webkit-backdrop-filter: blur(10px) brightness(0.9) saturate(120%);
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+                background: linear-gradient( 135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01) );
+                backdrop-filter: blur(5px) brightness(1.1) saturate(130%);
+                -webkit-backdrop-filter: blur(5px) brightness(1.0) saturate(130%);
+                box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
             }
 
             .h-item {
@@ -31,5 +30,5 @@
                 text-decoration: none;
             }
         </style>
-    </Container>
+    </div>
 </header>
