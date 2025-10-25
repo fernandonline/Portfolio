@@ -1,22 +1,22 @@
 <section class="banner-section d-flex flex-column min-vh-100 justify-content-center align-items-center position-relative overflow-hidden">
 
-    <div class="d-flex flex-column text-start" style="height:60dvh; width:80dvw;z-index:1;">
-        <span class="display-2 fw-bold">LUIZ</span>
-        <span class="display-2 fw-bold">FERNANDO</span>
-        <span class="display-2 fw-semibold">PORTFOLIO</span>
-        <span class="mt-1">
-            Desenvolvedor fullstack, construo soluções completas da web ao mobile.
-        </span>
+        <div class="d-flex flex-column text-start w-50 mb-5" style="z-index:1;">
+            <span class="display-2 fw-bold">LUIZ</span>
+            <span class="display-2 fw-bold">FERNANDO</span>
+            <span class="display-2 fw-semibold">PORTFOLIO</span>
+            <span>
+                Construindo soluções completas da web ao mobile
+            </span>
 
-        <div class="mt-1">
-            <a href="https://github.com/fernandonline" target="_blank">
-                <img src="assets/logo-github-svgrepo-com.svg" style="max-width:40px;" />
-            </a>
-            <a href="https://linkedin.com/in/fernandonline" target="_blank">
-                <img src="assets/linkedin-svgrepo-com.svg" style="max-width:50px;" />
-            </a>
+            <div>
+                <a href="https://github.com/fernandonline" target="_blank">
+                    <img src="assets/logo-github-svgrepo-com.svg" style="max-width:40px;" />
+                </a>
+                <a href="https://linkedin.com/in/fernandonline" target="_blank">
+                    <img src="assets/linkedin-svgrepo-com.svg" style="max-width:50px;" />
+                </a>
+            </div>
         </div>
-    </div>
 
     <div class="light-band"></div>
     <div class="dark-horizon"></div>
@@ -46,17 +46,16 @@
         }
 
         100% {
-            opacity: 0.7;
+            opacity: 0.75;
             transform: translateX(-50%) scale(1.05);
         }
     }
 
     .dark-horizon {
         position: absolute;
-        bottom: -36%;
+        bottom: -38%;
         left: 50%;
         width: 135%;
-        aspect-ratio: 2.5 / 1;
         border-radius: 50%;
         height: 60%;
         transform: translateX(-50%);
@@ -84,7 +83,21 @@
     }
 
     @@media (max-width: 768px) {
+        .light-band {
+            bottom: -25vw;
+        }
         .dark-horizon {
+            bottom: -35vw;
+            width: 200%;
+        }
+    }
+
+    @@media (max-width: 420px) {
+        .light-band {
+            bottom: -40vw;
+        }
+        .dark-horizon {
+            bottom: -65vw;
             width: 200%;
         }
     }
