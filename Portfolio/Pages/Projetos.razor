@@ -12,7 +12,7 @@
 else
 {
     <Container>
-        <div class="proj-style gap-4 gap-md-5 justify-content-center">
+        <div class="proj-style gap-4 justify-content-center">
             @foreach (var projeto in ListaProjetos.OrderByDescending(p => p.Id))
             {
                 <ProjetoCard Projeto="projeto" OnVerMais="AbrirModal" />

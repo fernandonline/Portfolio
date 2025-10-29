@@ -1,6 +1,7 @@
 .card {
     border: 2px dashed;
     border-radius: var(--border-r);
+    cursor: pointer;
 }
 
 .card-img-top {
@@ -12,14 +13,24 @@
     background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(5px);
     width: 98%;
+    bottom: 5px;
     border-bottom-left-radius: var(--border-r);
     border-bottom-right-radius: var(--border-r);
 }
 
 .card-icons {
     background: var(--cor-bg);
-    font-size: .6em;
-    padding: .2rem 0.4rem;
+    font-size: .4rem;
+    padding: 0.2rem .4rem;
+    margin-right: .3em;
     border: 1px solid white;
     border-radius: var(--border-r);
+}
+
+.btn {
+    font-size: 2em;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
 }
