@@ -1,6 +1,6 @@
 <section class="banner-section d-flex flex-column min-vh-100 justify-content-center align-items-center position-relative overflow-hidden">
 
-        <div class="d-flex flex-column text-start w-50 mb-5" style="z-index:1;">
+        <div class="d-flex flex-column text-start w-75" style="z-index:1;">
             <span class="display-2 fw-bold">LUIZ</span>
             <span class="display-2 fw-bold">FERNANDO</span>
             <span class="display-2 fw-semibold">PORTFOLIO</span>
@@ -18,8 +18,14 @@
             </div>
         </div>
 
-    <div class="light-band"></div>
+
+    <div class="light-band" ></div>
     <div class="dark-horizon"></div>
+
+    <iframe class="scroll"
+            src="https://lottie.host/embed/817dbc20-d5c1-459b-81a5-4793e0c530d0/ww7QATr3YJ.json">
+    </iframe>
+
 </section>
 
 <style>
@@ -82,6 +88,14 @@
         }
     }
 
+    .scroll {
+        position: absolute;
+        bottom: 30px;
+        width: 55px;
+        height: 55px;
+        z-index: 1;
+    }
+
     @@media (max-width: 768px) {
         .light-band {
             bottom: -25vw;
@@ -99,6 +113,10 @@
         .dark-horizon {
             bottom: -65vw;
             width: 200%;
+        }
+
+        .scroll {
+            bottom: 50px;
         }
     }
 </style>

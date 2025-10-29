@@ -9,30 +9,31 @@
     <img src="@Projeto?.Img"
          class="card-img-top ratio-16x9"
          alt="@Projeto?.Title"
+         loading="lazy"
     />
 
-    <div class="card-body position-absolute d-flex flex-column">
-        <h5 class="card-title">@Projeto?.Title</h5>
+    <div class="card-body position-absolute d-flex align-items-center">
 
-        <div class="d-flex gap-1">
-            @if (Projeto?.Tech?.Any() == true)
-            {
-                @foreach (var tech in Projeto.Tech)
+
+        <div class="w-75">
+            <h5 class="card-title mb-0">@Projeto?.Title</h5>
+                @if (Projeto?.Tech?.Any() == true)
                 {
-                    <div class="card-icons @tech.ToLowerInvariant()">
+                    @foreach (var tech in Projeto.Tech)
+                    {
+                    <div class="card-icons d-inline-block @tech.ToLowerInvariant()">
 
-                        <div class="text-uppercase">
-                            @tech
+                            <div class="text-uppercase">
+                                @tech
+                            </div>
                         </div>
-                    </div>
+                    }
                 }
-            }
-       
-
-        <button class="btn btn-outline-light ms-auto">
-            +
-        </button>
         </div>
-     
+
+                <button class="btn btn-outline-light ms-auto">
+                    +
+                </button>
+
     </div>
 </div>
