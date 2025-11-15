@@ -1,5 +1,4 @@
-<section class="banner-section d-flex flex-column min-vh-100 justify-content-center align-items-center position-relative overflow-hidden">
-
+<section class="banner-section d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden">
         <div class="d-flex flex-column text-start w-75" style="z-index:1;">
             <span class="display-2 fw-bold">LUIZ</span>
             <span class="display-2 fw-bold">FERNANDO</span>
@@ -26,23 +25,22 @@
             src="https://lottie.host/embed/817dbc20-d5c1-459b-81a5-4793e0c530d0/ww7QATr3YJ.json">
     </iframe>
 
-</section>
-
 <style>
     .banner-section {
+        height: 100dvh;
         background: radial-gradient(ellipse at bottom, #1a0033 5%, #000 85%);
     }
 
     .light-band {
         position: absolute;
-        bottom: -22%;
+        bottom: -20%;
         left: 50%;
         width: 220%;
         height: 80%;
-        background: radial-gradient( ellipse at center, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0) 70% );
-        filter: blur(10px);
-        animation: lightPulse 5s ease-in-out infinite alternate;
-        opacity: 0.6;
+        background: radial-gradient( ellipse at center, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0.05) 40%, rgba(255, 255, 255, 0) 60% );
+        animation: lightPulse 4s ease-in-out infinite alternate;
+        opacity: 0.8;
+        will-change: transform, opacity;
     }
 
     @@keyframes lightPulse {
@@ -68,15 +66,16 @@
         background: radial-gradient( ellipse at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.98) 60%, rgba(0, 0, 0, 0.5) 80% );
     }
 
-    .dark-horizon::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: radial-gradient( ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 65%, rgba(255, 255, 255, 0.4) 75% );
-        animation: horizonGlow 5s ease-in-out infinite alternate;
-        pointer-events: none;
-    }
+        .dark-horizon::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient( ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 65%, rgba(255, 255, 255, 0.4) 75% );
+            animation: horizonGlow 4s ease-in-out infinite alternate;
+            pointer-events: none;
+            will-change: opacity;
+        }
 
     @@keyframes horizonGlow {
         0% {
@@ -100,6 +99,7 @@
         .light-band {
             bottom: -25vw;
         }
+
         .dark-horizon {
             bottom: -35vw;
             width: 200%;
@@ -110,13 +110,15 @@
         .light-band {
             bottom: -40vw;
         }
+
         .dark-horizon {
             bottom: -65vw;
             width: 200%;
         }
 
         .scroll {
-            bottom: 50px;
+            bottom: 100px;
         }
     }
 </style>
+</section>
