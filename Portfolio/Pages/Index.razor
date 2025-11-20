@@ -1,8 +1,92 @@
 @page "/"
+@using System.Text.Json
+@inject HttpClient Http
 <PageTitle>index</PageTitle>
 <Banner/>
 <Container>
-    <About/>
-    <Logos/>
-    <ProjetosRecente/>
+    <div class="w-100">
+        <h2 class="mb-4"> Sobre </h2>
+        <span>
+            Sou desenvolvedor fullstack com experiência prática no desenvolvimento de interfaces frontend com
+            Vue.js e desenvolvimento backend com .NET Core. Familiarizado com todo o ciclo de desenvolvimento,
+            desde a modelagem do banco de dados até o deploy da aplicação, buscando soluções eficientes e
+            bem estruturadas. Disposto a aprender e explorar novas tecnologias para me manter atualizado
+            com melhores práticas de qualidade e segurança.
+        </span>
+    </div>
+    
+    <h2 class="fw-semibold fs-2 text-start mb-5 mt-5">
+        Conhecimentos
+    </h2>
+    <div class="d-flex flex-wrap justify-content-center justify-content-lg-evenly gap-3 mb-5">
+        <div class="icon-container vue">VUE</div>
+        <div class="icon-container nuxt">NUXT</div>
+        <div class="icon-container node">NODE.js</div>
+        <div class="icon-container javascript">JAVASCRIPT</div>
+        <div class="icon-container dotnet">.NET</div>
+        <div class="icon-container maui">.NET MAUI</div>
+        <div class="icon-container blazor">BLAZOR</div>
+        <div class="icon-container sql">SQL</div>
+        <div class="icon-container android">ANDROID</div>
+        <div class="icon-container windows">WINDOWS</div>
+    </div>
+
+    <LazySection>
+        <div class="w-100 mb-5">
+
+            <h2 class="mb-5">Projetos Recentes</h2>
+
+            @if (ListaProjetos is null)
+            {
+                <p class="text-white">Carregando...</p>
+            }
+            else
+            {
+                var maisRecentes = ListaProjetos
+                .OrderByDescending(p => p.Id)
+                .Take(2)
+                .ToList();
+
+                <div class="d-flex flex-column align-items-center flex-md-row gap-5 gap-md-4">
+                    @foreach (var projeto in maisRecentes)
+                    {
+                        <ProjetoCard Projeto="projeto" OnVerMais="AbrirModal" />
+                    }
+                </div>
+            }
+
+
+            @if (ProjetoSelecionado != null)
+            {
+                <ModalProjetos Projeto="@ProjetoSelecionado" Visivel="@MostrarModal" OnClose="@FecharModal" />
+            }
+
+            @code {
+                private List<Projeto>? ListaProjetos;
+                private Projeto? ProjetoSelecionado;
+                private bool MostrarModal = false;
+
+                protected override async Task OnInitializedAsync()
+                {
+                    var json = await Http.GetStringAsync("data/projects.json");
+                    ListaProjetos = JsonSerializer.Deserialize<List<Projeto>>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                }
+
+                private void AbrirModal(Projeto projeto)
+                {
+                    ProjetoSelecionado = projeto;
+                    MostrarModal = true;
+                }
+
+                private void FecharModal()
+                {
+                    MostrarModal = false;
+                    ProjetoSelecionado = null;
+                }
+            }
+        </div>
+    </LazySection>
 </Container>

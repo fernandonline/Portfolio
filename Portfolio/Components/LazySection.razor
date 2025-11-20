@@ -1,0 +1,35 @@
+@inject IJSRuntime JS
+
+<section @ref="placeholder">
+    @if (IsVisible)
+    {
+        @ChildContent
+    }
+</section>
+
+@code {
+    private ElementReference placeholder;
+    private bool IsVisible = false;
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync(
+                "lazySection.observe",
+                placeholder,
+                DotNetObjectReference.Create(this)
+            );
+        }
+    }
+
+    [JSInvokable]
+    public void OnVisible()
+    {
+        IsVisible = true;
+        StateHasChanged();
+    }
+}

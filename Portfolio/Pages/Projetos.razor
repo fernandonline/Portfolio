@@ -11,6 +11,7 @@
 }
 else
 {
+    <LazySection>
     <Container>
         <div class="proj-style gap-4 justify-content-center">
             @foreach (var projeto in ListaProjetos.OrderByDescending(p => p.Id))
@@ -19,6 +20,7 @@ else
             }
         </div>
     </Container>
+    </LazySection>
 }
 
 <ModalProjetos Projeto="@Selecionado" Visivel="@MostrarModal" OnClose="@FecharModal" />
