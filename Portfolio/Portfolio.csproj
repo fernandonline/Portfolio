@@ -18,12 +18,4 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.18" PrivateAssets="all" />
     </ItemGroup>
 
-    <Target Name="RemoveBrowserRefreshOnPublish" 
-			Condition="'$(Configuration)'=='Release'"
-            AfterTargets="PrepareForPublish">
-
-		<Message Importance="high"/>
-		<Exec Command="powershell -NoProfile -Command ^ (Get-Content 'wwwroot/index.html') ^ | Where-Object { $_ -notmatch 'aspnetcore-browser-refresh\.js' } ^ | Set-Content 'wwwroot/index.html'"
-			IgnoreExitCode="true" />
-	</Target>
 </Project>
