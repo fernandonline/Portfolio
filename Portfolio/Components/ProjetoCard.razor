@@ -1,14 +1,15 @@
+@using Portfolio.Models
 @code {
-    [Parameter] public Projeto? Projeto { get; set; }
+    [Parameter] public Projeto? projeto { get; set; }
     [Parameter] public EventCallback<Projeto> OnVerMais { get; set; }
 }
 
-<div @onclick="() =>OnVerMais.InvokeAsync(Projeto)"
+<div @onclick="() =>OnVerMais.InvokeAsync(projeto)"
      class="card bg-transparent d-flex align-items-center p-2">
 
-    <img src="@Projeto?.Img"
+    <img src="@projeto?.Img"
          class="card-img-top ratio-16x9"
-         alt="@Projeto?.Title"
+         alt="@projeto?.Title"
          loading="lazy"
     />
 
@@ -16,24 +17,24 @@
 
 
         <div class="w-75">
-            <h5 class="card-title mb-0">@Projeto?.Title</h5>
-                @if (Projeto?.Tech?.Any() == true)
+            <h5 class="card-title mb-0">@projeto?.Title</h5>
+            @if (projeto?.Tech?.Any() == true)
+            {
+                foreach (var tech in projeto.Tech)
                 {
-                    @foreach (var tech in Projeto.Tech)
-                    {
                     <div class="card-icons d-inline-block @tech.ToLowerInvariant()">
 
-                            <div class="text-uppercase">
-                                @tech
-                            </div>
+                        <div class="text-uppercase">
+                            @tech
                         </div>
-                    }
+                    </div>
                 }
+            }
         </div>
 
-                <button class="btn btn-outline-light ms-auto">
-                    +
-                </button>
+        <button class="btn btn-outline-light ms-auto">
+            +
+        </button>
 
     </div>
 </div>

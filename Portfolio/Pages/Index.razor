@@ -1,6 +1,7 @@
 @page "/"
-@using System.Text.Json
-@inject HttpClient Http
+@using Portfolio.Models
+@inject Portfolio.Services.ProjetoService ProjetoService
+
 <PageTitle>index</PageTitle>
 <Banner/>
 <Container>
@@ -31,7 +32,6 @@
         <div class="icon-container windows">WINDOWS</div>
     </div>
 
-    <LazySection>
         <div class="w-100 mb-5">
 
             <h2 class="mb-5">Projetos Recentes</h2>
@@ -68,11 +68,7 @@
 
                 protected override async Task OnInitializedAsync()
                 {
-                    var json = await Http.GetStringAsync("data/projects.json");
-                    ListaProjetos = JsonSerializer.Deserialize<List<Projeto>>(json, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+                    ListaProjetos = await ProjetoService.GetProjetosAsync();
                 }
 
                 private void AbrirModal(Projeto projeto)
@@ -88,5 +84,4 @@
                 }
             }
         </div>
-    </LazySection>
 </Container>

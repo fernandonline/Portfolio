@@ -1,6 +1,7 @@
 @page "/projetos"
-@using Portfolio.Layout
 @using System.Text.Json
+@using Portfolio.Layout
+@using Portfolio.Models
 @inject HttpClient Http
 
 <PageTitle>projetos</PageTitle>
@@ -11,7 +12,7 @@
 }
 else
 {
-    <LazySection>
+  
     <Container>
         <div class="proj-style gap-4 justify-content-center">
             @foreach (var projeto in ListaProjetos.OrderByDescending(p => p.Id))
@@ -20,7 +21,7 @@ else
             }
         </div>
     </Container>
-    </LazySection>
+    
 }
 
 <ModalProjetos Projeto="@Selecionado" Visivel="@MostrarModal" OnClose="@FecharModal" />
