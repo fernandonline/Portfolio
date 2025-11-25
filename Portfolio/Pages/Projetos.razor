@@ -35,7 +35,7 @@ else
     {
         try
         {
-            var json = await Http.GetStringAsync("data/projects.json");
+            var json = await Http.GetStringAsync("https://raw.githubusercontent.com/fernandonline/portfolio-data/main/projects.json");
             ListaProjetos = JsonSerializer.Deserialize<List<Projeto>>(json, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
