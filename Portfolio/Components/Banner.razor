@@ -21,10 +21,6 @@
     <div class="light-band" ></div>
     <div class="dark-horizon"></div>
 
-    <iframe class="scroll"
-            src="https://lottie.host/embed/817dbc20-d5c1-459b-81a5-4793e0c530d0/ww7QATr3YJ.json">
-    </iframe>
-
 <style>
     .banner-section {
         height: 100dvh;
@@ -74,7 +70,6 @@
             background: radial-gradient( ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 65%, rgba(255, 255, 255, 0.4) 75% );
             animation: horizonGlow 4s ease-in-out infinite alternate;
             pointer-events: none;
-            will-change: opacity;
         }
 
     @@keyframes horizonGlow {
@@ -85,14 +80,6 @@
         100% {
             opacity: 0.7;
         }
-    }
-
-    .scroll {
-        position: absolute;
-        bottom: 30px;
-        width: 55px;
-        height: 55px;
-        z-index: 1;
     }
 
     @@media (max-width: 768px) {
@@ -114,10 +101,6 @@
         .dark-horizon {
             bottom: -65vw;
             width: 200%;
-        }
-
-        .scroll {
-            bottom: 100px;
         }
     }
 </style>
